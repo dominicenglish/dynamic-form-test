@@ -2,11 +2,27 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/contact">Contact</router-link> |
+      <router-link to="/dynamic-form">Dynamic Form</router-link> |
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+import Vue from 'vue'
+
+Vue.component('ContactFirstName', () =>
+  import('@/components/fields/ContactFirstName.vue')
+)
+Vue.component('ContactLastName', () =>
+  import('@/components/fields/ContactLastName.vue')
+)
+Vue.component('F-Text', () => import('@/components/fields/F-Text.vue'))
+export default {}
+</script>
+
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
